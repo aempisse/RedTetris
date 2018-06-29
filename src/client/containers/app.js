@@ -1,18 +1,17 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import UpdateTetri from '../components/UpdateTetri.js';
+import GameBoard from '../components/GameBoard.js';
+import MoveLeft from '../components/MoveLeft.js';
+import MoveRight from '../components/MoveRight.js';
 
 
-const App = ({message}) => {
-  return (
-    <span>{message}</span>
-  )
-}
+const App = () => (
+	<div>
+		<UpdateTetri />
+		<MoveLeft />
+		<MoveRight />
+		<GameBoard />
+	</div>
+);
 
-const mapStateToProps = (state) => {
-  return {
-    message: state.message
-  }
-}
-export default connect(mapStateToProps, null)(App)
-
-
+export default App;
