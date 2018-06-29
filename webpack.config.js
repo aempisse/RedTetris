@@ -9,13 +9,15 @@ module.exports = {
   },
 
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel',
+      loader: 'babel-loader',
       query:{
         presets: ["es2015", "react", "stage-0"]
       }
     }]
-  }
+  },
+
+  mode: 'development'
 };
