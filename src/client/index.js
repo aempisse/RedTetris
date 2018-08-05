@@ -10,7 +10,7 @@ import { Provider } from 'react-redux'
 import App from './containers/app'
 // import {alert} from './actions/alert'
 import store from "./store/index";
-
+import {eventHandler} from "./constants/eventHandler";
 
 
 
@@ -19,3 +19,5 @@ render((
     <App/>
   </Provider>
 ), document.getElementById('tetris'))
+
+window.addEventListener('keydown', e => eventHandler(e), false);
