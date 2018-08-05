@@ -27,7 +27,7 @@ const GameCase = ({actualState, caseColor, caseImg}) => {
 	console.log(caseImg)
 	return (
 		<div>
-			<div className="col-sm-1" style={{height: '50px' , backgroundColor: caseColor, backgroundImage: caseImg}}></div>
+			<div className="col-sm-1" style={{height: '30px', width: '30px' , backgroundColor: caseColor, backgroundImage: caseImg, border: 'solid 1px'}}></div>
 		</div>
 	)
 }

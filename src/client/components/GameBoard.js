@@ -3,7 +3,7 @@ import GameCase from './GameCase.js'
 
 const GameBoard = ({}) => {
 	return (
-		<div style={{margin: '5% 0px 0px 10%' , width: '500px', border: 'solid 5px red', overflow: 'hidden'}}>
+		<div style={{margin: '5% 0px 0px 5%' , width: '300px', border: 'solid 5px red', overflow: 'hidden'}}>
 		<div className="row">
 			<GameCase lgn='0' col='0'/>
 			<GameCase lgn='0' col='1'/>
