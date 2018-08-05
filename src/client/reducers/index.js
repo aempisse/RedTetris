@@ -1,7 +1,7 @@
 import {CHANGE_COLOR, UPDATE_TETRI, TETRI_MOVE} from "../constants/action_types";
+import {newTetriminos} from "../constants/TetriminosGenerator.js";
 
 const initialState = {
-	colors: 'red',
 	CaseState: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 				[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 				[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -18,11 +18,11 @@ const initialState = {
 				[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 				[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 				[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+				[0, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 				[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 				[0, 2, 2, 2, 2, 2, 2, 2, 2, 2],],
-	Tetriminos: [[0, 0], "I", 0],
+	Tetriminos: newTetriminos(),
 	CollisionBool: 0,
 };
 

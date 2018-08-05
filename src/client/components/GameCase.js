@@ -23,8 +23,7 @@ const mapStateToProps = (state, id) => {
 			  caseImg: img});
 };
 
-const GameCase = ({actualState, caseColor, caseImg}) => {
-	console.log(caseImg)
+const GameCase = ({caseColor, caseImg}) => {
 	return (
 		<div>
 			<div className="col-sm-1" style={{height: '30px', width: '30px' , backgroundColor: caseColor, backgroundImage: caseImg, border: 'solid 1px'}}></div>
