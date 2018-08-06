@@ -3,7 +3,7 @@ import http from 'http'
 import IO from 'socket.io'
 
 const ClientManager = require('./ClientManager')
-const GameManager = require('./GameManager')
+const GameManager = require('./data/game/GameManager')
 const makeHandlers = require ('./handlers')
 
 const clientManager = new ClientManager()
