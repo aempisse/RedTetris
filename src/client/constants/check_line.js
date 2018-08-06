@@ -17,12 +17,6 @@ export const readMap = (gameMap) => {
 		gameMap = _.concat([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], gameMap);
 		nbr_lgn--;
 	}
-	i = 0
-	/*while (i < 21)
-	{
-		console.log("ligne numero : " + i + " = " + gameMap[i])
-		i++;
-	}*/
 	return (gameMap);
 
 }
