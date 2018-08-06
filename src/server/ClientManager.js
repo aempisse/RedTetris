@@ -1,4 +1,4 @@
-module.exports = class ClientManager {
+export default class ClientManager {
     // mapping of all connected clients
     constructor() {
         this.clients = new Map()

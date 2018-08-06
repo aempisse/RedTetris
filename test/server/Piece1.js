@@ -1,5 +1,5 @@
 import chai from "chai"
-import Piece from "../src/server/Piece"
+import Piece from "../../src/server/data/piece/Piece"
 
 chai.should()
 

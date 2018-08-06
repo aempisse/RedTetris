@@ -1,6 +1,6 @@
-const Game = require('./data/game/Game')
+const Game = require('./Game')
 
-module.exports = class GameManager {
+export default class GameManager {
 	// mapping of all available chatrooms
 	
 	constructor() {
