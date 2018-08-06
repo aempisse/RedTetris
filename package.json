@@ -13,8 +13,8 @@
     "coverage": "NODE_ENV=test nyc --include src --all -r text -r lcov -r text --require babel-core/register mocha "
   },
   "dependencies": {
-    "lodash": "^4.17.10",
     "bootstrap": "^3.3.7",
+    "lodash": "^4.17.10",
     "npm": "^6.1.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
