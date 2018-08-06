@@ -1,6 +1,7 @@
 import chai from "chai"
 import Piece from "../../src/server/data/piece/Piece.js"
 
+
 chai.should()
 
 describe('class Piece', function() {
