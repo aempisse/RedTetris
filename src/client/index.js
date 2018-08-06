@@ -10,9 +10,8 @@ import { Provider } from 'react-redux'
 import App from './containers/app'
 // import {alert} from './actions/alert'
 import store from "./store/index";
-import {eventHandler} from "./constants/eventHandler";
-
-
+import * as event from "./constants/eventHandler.js";
+import {updateTetri} from "./actions/update_tetri.js";
 
 render((
   <Provider store={store}>
@@ -20,4 +19,6 @@ render((
   </Provider>
 ), document.getElementById('tetris'))
 
-window.addEventListener('keydown', e => eventHandler(e), false);
+window.setInterval(() => {store.dispatch(updateTetri());} , 1000);
+//window.setInterval(event.update(), 1000);
+window.addEventListener('keydown', e => event.keyHandler(e), false);

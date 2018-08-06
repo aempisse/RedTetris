@@ -8,8 +8,13 @@ const keyLeft = 65;
 const keyUp = 87;
 const keyRight = 68;
 const keyDown = 83;
-  
-export const eventHandler = (event) => {
+
+/*export const update = () => {
+    console.log("update !");
+    store.dispatch(updateTetri());
+}*/
+
+export const keyHandler = (event) => {
      switch (event.keyCode) {
         case keyDown:
             event.preventDefault();
