@@ -4,10 +4,9 @@ import Piece from "../src/server/Piece"
 chai.should()
 
 describe('class Piece', function() {
-    let piece = new Piece()
 
     it('should generate the same pattern for the same instance of Piece', function() {
-        let piece = new Piece()
+        const piece = new Piece()
 
         let firstPattern = []
         for (let i = 0; i < 20; i++) {
@@ -22,8 +21,8 @@ describe('class Piece', function() {
     })
 
     it('should generate a different pattern for two instances of Piece', function() {
-        let piece1 = new Piece()
-        let piece2 = new Piece()
+        const piece1 = new Piece()
+        const piece2 = new Piece()
 
         let patternPiece1 = []
         for (let i = 0; i < 20; i++) {
