@@ -1,10 +1,12 @@
 import React from 'react';
-import GameBoard from '../components/GameBoard.js';
+// import GameBoard from '../components/GameBoard.js';
+import Home from '../components/Home.js'
 
 
 const App = () => (
 	<div>
-		<GameBoard />
+		{/* <GameBoard /> */}
+		<Home />
 	</div>
 );
 

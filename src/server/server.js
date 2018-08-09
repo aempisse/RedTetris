@@ -11,30 +11,30 @@ const gameManager = new GameManager()
 
 class Server {
 
-    handeClient(client) {
+    handleClient(client) {
 
         console.log('client connected...', client.id)
         clientManager.addClient(client)
 
         const {
-            handleRegister,
-            handleJoin,
-            handleLeave,
-            handleGetGames,
-            handleDisconnect
+            handleRegister
+            // handleJoin,
+            // handleLeave,
+            // handleGetGames,
+            // handleDisconnect
         } = makeHandlers(client, clientManager, gameManager)
 
         client.on('register', handleRegister)
     
-        client.on('join', handleJoin)
+        // client.on('join', handleJoin)
     
-        client.on('leave', handleLeave)
+        // client.on('leave', handleLeave)
     
-        client.on('games', handleGetGames)
+        // client.on('games', handleGetGames)
     
         client.on('disconnect', function () {
             console.log('client disconnect...', client.id)
-            handleDisconnect()
+            // handleDisconnect()
         })
     
         client.on('error', function (err) {
