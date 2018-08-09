@@ -11,7 +11,6 @@ export function updateTetri() {
 
 	var col_tetri = newTetriminosState[0][1];
 	var lgn_tetri = newTetriminosState[0][0] + 1;
-	var coord_tetri = [lgn_tetri, col_tetri];
 	var type_tetri = newTetriminosState[1];
 	var rot_tetri = newTetriminosState[2];
 
@@ -20,10 +19,6 @@ export function updateTetri() {
 		ColliBool = 0;
 		newGameState = bitmap.fillMap(newTetriminosState[0][0], newTetriminosState[0][1], newGameState, bitmap.Map(newTetriminosState[1], rot_tetri), 1);
 		newGameState = bitmap.fillMap(lgn_tetri - 1, col_tetri, newGameState, bitmap.Map(type_tetri, rot_tetri), 2);
-		/*if ((update_info = readMap(newGameState)) != 0)
-		{
-			newGameState = destroyEntireLine(newGameState, update_info[0], update_info[1]);
-		}*/
 		newGameState = readMap(newGameState);
 		newTetriminosState = newTetriminos();
 	}
