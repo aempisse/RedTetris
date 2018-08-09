@@ -1,5 +1,5 @@
 import React from "react"
-import GameCase from './GameCase.js'
+import GameCase from '../components/GameCase.js'
 
 const GameBoard = ({}) => {
 	return (

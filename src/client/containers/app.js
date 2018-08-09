@@ -1,6 +1,6 @@
 import React from 'react';
 // import GameBoard from '../components/GameBoard.js';
-import Home from '../components/Home.js'
+import Home from './Home.js'
 
 
 const App = () => (
