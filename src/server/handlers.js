@@ -58,6 +58,18 @@ module.exports =  function (client, clientManager, gameManager) {
 		return callback(null, userName)
 	}
 
+	function handleNewGame(client, gameName) {
+		
+		gameManager.addGame(gameName)
+		game = gameManager.getGame(gameName)
+		game.addPlayer(client.name, client.id)
+
+		console.log('game created:', gameName)
+		console.log('added player', client.name, 'to game', gameName)
+
+		return callback(null, gameName)
+	}
+
 	// function handleJoin(chatroomName, callback) {
 	// 	const createEntry = () => ({ event: `joined ${chatroomName}` })
 
@@ -97,7 +109,8 @@ module.exports =  function (client, clientManager, gameManager) {
 	// }
 
 	return {
-		handleRegister
+		handleRegister,
+		handleNewGame
 		// handleJoin,
 		// handleLeave,
 		// handleGetGames,

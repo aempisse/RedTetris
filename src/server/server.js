@@ -17,7 +17,8 @@ class Server {
         clientManager.addClient(client)
 
         const {
-            handleRegister
+            handleRegister,
+            handleNewGame
             // handleJoin,
             // handleLeave,
             // handleGetGames,
@@ -26,6 +27,8 @@ class Server {
 
         client.on('register', handleRegister)
     
+        client.on('newGame', handleNewGame)
+
         // client.on('join', handleJoin)
     
         // client.on('leave', handleLeave)
