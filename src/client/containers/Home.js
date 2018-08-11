@@ -1,14 +1,21 @@
 import React from "react";
 import NameForm from "../components/nameForm.js";
-import GameRoomDoor from "./GameRoomDoor.js";
+import CreateGameButton from "../components/CreateGame.js";
+import ExitGameRoomButton from "../components/ExitGameRoom.js";
+import { connect } from "react-redux";
+import store from "../store/index.js";
 
-const Home = () => {
+const mapStateToProps = (state) => {
+    return ({UserNameState: state.userName});
+}
+
+const Home = ({UserNameState}) => {
     return (
         <div style={{margin: '10% 0px 0px 40%'}}>
-            <NameForm />
-            <GameRoomDoor />
+            Hello {UserNameState} !
+            <CreateGameButton />
         </div>
     )
 };
 
-export default Home;
+export default connect(mapStateToProps)(Home);

@@ -1,13 +1,26 @@
 import React from 'react';
-// import GameBoard from '../components/GameBoard.js';
-import Home from './Home.js'
+import GameBoard from './GameBoard.js';
+import NameForm from '../components/nameForm.js';
+import Home from "./Home.js";
+import { connect } from "react-redux";
 
+const Page = (props) => {
+	if (props.index.PageIndex == 0)
+		return (<NameForm />);
+	else if (props.index.PageIndex == 1)
+		return (<Home />);
+	else if (props.index.PageIndex == 2)
+		return (<GameBoard />);
+}
 
-const App = () => (
+const mapStateToProps = (state) => {
+	return ({PageIndex: state.pageIndex})
+}
+
+const App = (PageIndex) => (
 	<div>
-		{/* <GameBoard /> */}
-		<Home />
+		<Page index={PageIndex}/>
 	</div>
 );
 
-export default App;
+export default connect(mapStateToProps)(App);
