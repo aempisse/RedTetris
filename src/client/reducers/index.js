@@ -1,4 +1,4 @@
-import {CHANGE_COLOR, UPDATE_TETRI, TETRI_MOVE, UPDATE_INPUT_USERNAME, UPDATE_USERNAME} from "../constants/action_types";
+import {CHANGE_COLOR, UPDATE_TETRI, TETRI_MOVE, UPDATE_INPUT_USERNAME, UPDATE_USERNAME, NEW_GAME_ROOM} from "../constants/action_types";
 import {newTetriminos} from "../constants/TetriminosGenerator.js";
 
 const initialState = {
@@ -25,7 +25,8 @@ const initialState = {
 	Tetriminos: newTetriminos(),
 	CollisionBool: 0,
 	InputUserName: "",
-	UserName: "Player",
+	userName: "Player",
+	pageIndex: 0,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -40,7 +41,9 @@ const rootReducer = (state = initialState, action) => {
 		case UPDATE_INPUT_USERNAME:
 			return {...state, InputUserName: action.namePayload};
 		case UPDATE_USERNAME:
-			return {...state, UserName: action.namePayload};		
+			return {...state, userName: action.namePayload, pageIndex: action.pageIndexPayload};
+		case NEW_GAME_ROOM:
+			return {...state, pageIndex: action.pageIndexPayload};	
 		default:
 			return state;
 	}

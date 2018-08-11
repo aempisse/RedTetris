@@ -12,6 +12,7 @@ export function updateUserName(){
     let newName = store.getState().InputUserName;
     return {
         type: UPDATE_USERNAME,
-        namePayload: newName, 
+        namePayload: newName,
+        pageIndexPayload: 1, 
     }
 };

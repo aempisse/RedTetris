@@ -9,8 +9,7 @@ import { updateInputUserName, updateUserName } from "../actions/nameForm.js";
 const client = socket();
 
 const mapStateToProps = (state) => {
-  return ({ InputNameState: state.inputUserName,
-    UserNameState: state.UserName });
+  return ({ InputNameState: state.inputUserName});
 };
 
 const handleChange = (event) => {
@@ -25,10 +24,9 @@ const HandleSubmit = (event) => {
     client.register(store.getState().UserName , (err, user) => onRegisterResponse());
 }
 
-const NameForm = ({InputNameState, UserNameState}) => {
+const NameForm = ({InputNameState}) => {
   return (
-    <form onSubmit={HandleSubmit}>
-    <div>Hello {UserNameState} !</div>
+    <form style={{margin: '10% 0px 0px 40%'}} onSubmit={HandleSubmit}>
           <label>
             Name:
             <input type="text" name="" value={InputNameState} onChange={handleChange} />
