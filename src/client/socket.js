@@ -20,6 +20,14 @@ export default function () {
     socket.emit('register', name, cb)
   }
 
+  function newGame(name, cb) {
+    socket.emit('newGame', name, cb)
+  }
+
+  function gameList(cb) {
+    socket.emit('gameList', cb)
+  }
+
   function join(chatroomName, cb) {
     socket.emit('join', chatroomName, cb)
   }
@@ -30,6 +38,8 @@ export default function () {
 
   return {
     register,
+    newGame,
+    gameList,
     join,
     leave,
   }

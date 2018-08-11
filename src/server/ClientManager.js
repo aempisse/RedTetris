@@ -8,15 +8,19 @@ export default class ClientManager {
         this.clients.set(client.id, { client })
     }
 
-    registerClient(client, user) {
-        this.clients.set(client.id, { client, user })
+    registerClient(client, userName) {
+        this.clients.set(client.id, { client, userName })
     }
 
     removeClient(client) {
         this.clients.delete(client.id)
     }
 
-    getUserByClientId(clientId) {
-        return (this.clients.get(clientId) || {}).user
+    getClientByClientId(clientId) {
+        return (this.clients.get(clientId) || {}).userName
+    }
+
+    getClientByUserName(userName) {
+        return (this.clients.find(client => client.userName === userName))
     }
 }

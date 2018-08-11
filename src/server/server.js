@@ -29,6 +29,8 @@ class Server {
     
         client.on('newGame', handleNewGame)
 
+        client.on('gameList', handleGameList)
+
         // client.on('join', handleJoin)
     
         // client.on('leave', handleLeave)

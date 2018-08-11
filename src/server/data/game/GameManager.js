@@ -1,28 +1,36 @@
 const Game = require('./Game')
 
 export default class GameManager {
-	// mapping of all available chatrooms
 	
 	constructor() {
-		this.games = new Map()
+		// this.games = new Map()
+		this.games = [
+			{id: '0123', players: [
+				{playerName: 'jean-michel', id: '42'},
+				{playerName: 'michelle-jean', id: '27'}
+			]},
+			{id: '6789', players: [
+				{playerName: 'max', id: '84'},
+				{playerName: 'axel', id: '65'}
+			]}
+		]
 	}
 
-	// removeClient(client) {
-	// 	this.games.forEach(c => c.removePlayer(client.name))
-	// }
-
-	getGame(gameName) {
-		return this.games.get(gameName)
+	addGame() {
+		gameList = this.games
+		do
+			newGameId = (Math.floor(Math.random() * 9999) + 1).toString().padStart(4, '0')
+		while (!this.getGame(newGameId))
+		newGame = new Game(newGameId)
+		this.games = gameList.concat(game)
+		return newGame
 	}
 
-	addGame(gameName) {
-		if (this.getGame(gameName) !== undefined )
-			return false
-		game = new Game(gameName)
-		this.games.push(game)
+	getGame(gameId) {
+		return this.games.get(gameId)
 	}
 
-	serializeGames() {
-		return Array.from(this.games.values()).map(c => c.serialize())
+	getGameList() {
+		return this.games
 	}
 }

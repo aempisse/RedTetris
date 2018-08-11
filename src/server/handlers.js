@@ -1,3 +1,5 @@
+import Player from './data/player/Player'
+
 // function makeHandleEvent(client, clientManager, gameManager) {
 // 	function ensureExists(getter, rejectionMessage) {
 // 		return new Promise(function (resolve, reject) {
@@ -58,16 +60,21 @@ module.exports =  function (client, clientManager, gameManager) {
 		return callback(null, userName)
 	}
 
-	function handleNewGame(client, gameName) {
+	function handleNewGame(name, callback) {
 		
-		gameManager.addGame(gameName)
-		game = gameManager.getGame(gameName)
-		game.addPlayer(client.name, client.id)
+		client = clientManager.getClientByUserName(name)
 
-		console.log('game created:', gameName)
-		console.log('added player', client.name, 'to game', gameName)
+		newGame = gameManager.addGame()
+		newGame.addPlayer(name, client.id)
 
-		return callback(null, gameName)
+		console.log('game created:', newGame.id)
+		console.log('added player', name, 'to game', newGame.id)
+
+		return callback(null, newGame.id)
+	}
+
+	function handleGameList(callback) {
+		return callback(null, gameManager.getGameList())
 	}
 
 	// function handleJoin(chatroomName, callback) {
@@ -110,10 +117,10 @@ module.exports =  function (client, clientManager, gameManager) {
 
 	return {
 		handleRegister,
-		handleNewGame
+		handleNewGame,
+		handleGameList
 		// handleJoin,
 		// handleLeave,
-		// handleGetGames,
 		// handleDisconnect
 	}
 }

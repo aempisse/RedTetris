@@ -1,8 +1,8 @@
 module.exports = class Game {
 
-    constructor(name) {
-        this.players = new Map()
-        this.name = name
+    constructor(id) {
+      this.id = id
+      this.players = new Map()
     }
 
   addPlayer(playerName, id) {
@@ -41,50 +41,4 @@ module.exports = class Game {
     return this.players.find(e => e.playerName === playerName) !== undefined;
   }
 
-  gameHasEnd() {
-    
-  }
 }
-
-
-// module.exports = function({name, image}) {
-//     const members = new Map()
-//     let chatHistory = []
-
-//     function broadcastMessage(message) {
-//         members.forEach(m => m.emit('message', message))
-//     }
-
-//     function addEntry(entry) {
-//         chatHistory = chatHistory.concat(entry)
-//     }
-
-//     function getChatHistory() {
-//         return chatHistory.slice()
-//     }
-
-//     function addUser(client) {
-//         members.set(client.id, client)
-//     }
-
-//     function removeUser(client) {
-//         members.delete(client.id)
-//     }
-
-//     function serialize() {
-//         return {
-//             name,
-//             image,
-//             numMembers: members.size
-//         }
-//     }
-
-//     return {
-//         broadcastMessage,
-//         addEntry,
-//         getChatHistory,
-//         addUser,
-//         removeUser,
-//         serialize
-//     }
-// }
