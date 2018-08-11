@@ -73,11 +73,8 @@ module.exports =  function (client, clientManager, gameManager) {
 		return callback(null, newGame.id)
 	}
 
-	function handleGameList() {
-		return new Promise(((resolve, reject) => {
-			gameList = gameManager.getGameList()
-			resolve(gameList)
-		}))
+	function handleGameList(callback) {
+		return callback(null, gameManager.getGameList())
 	}
 
 	// function handleJoin(chatroomName, callback) {

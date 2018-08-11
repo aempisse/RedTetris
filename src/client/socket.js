@@ -24,8 +24,8 @@ export default function () {
     socket.emit('newGame', name, cb)
   }
 
-  function gameList() {
-    socket.emit('gameList')
+  function gameList(cb) {
+    socket.emit('gameList', cb)
   }
 
   function join(chatroomName, cb) {
