@@ -18,7 +18,8 @@ class Server {
 
         const {
             handleRegister,
-            handleNewGame
+            handleNewGame,
+            handleGameList
             // handleJoin,
             // handleLeave,
             // handleGetGames,
