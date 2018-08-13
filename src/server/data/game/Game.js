@@ -1,4 +1,4 @@
-module.exports = class Game {
+export default class Game {
 
     constructor(id) {
       this.id = id
@@ -12,9 +12,9 @@ module.exports = class Game {
       const player = new Player(playerName, id)
       this.players.push(player)
 
-    //   PacketSender.sendPlayerJoin(player, this)
+    // io.to(this.id).emit('playerJoined', playerName)
 
-      return player;
+    return player;
     }
   }
 

@@ -2,44 +2,27 @@ import express from 'express'
 import http from 'http'
 import IO from 'socket.io'
 
-import ClientManager from './ClientManager'
-import GameManager from './data/game/GameManager'
+import socketManager from './socketManager'
 import SocketHandler from './SocketHandler'
-import makeHandlers from './handlers'
-
-const clientManager = new ClientManager()
-const gameManager = new GameManager()
 
 class Server {
     
-    handleClient(socket) {
+    handleConnection(socket) {
         
         console.log('client connected...', socket.id)
-        clientManager.addClient(socket)
+        socketManager.addSocket(socket)
 
         const socketHandler = new SocketHandler(socket)
 
-        const {
-            handleRegister,
-            handleNewGame,
-            handleGameList
-            // handleJoin,
-            // handleLeave,
-            // handleGetGames,
-            // handleDisconnect
-        } = makeHandlers(socket, clientManager, gameManager, socketHandler)
-
-        socket.on('register', handleRegister)
+        socket.on('register', socketHandler.handleRegister)
     
-        socket.on('newGame', handleNewGame)
+        socket.on('createGame', socketHandler.handleCreateGame)
 
-        socket.on('gameList', handleGameList)
+        socket.on('gameList', socketHandler.handleGameList)
 
         // client.on('join', handleJoin)
     
         // client.on('leave', handleLeave)
-    
-        // client.on('games', handleGetGames)
     
         socket.on('disconnect', function () {
             console.log('client disconnect...', socket.id)
@@ -57,11 +40,15 @@ class Server {
         const server = http.Server(app)
         const io = IO(server)
 
-        io.on('connection', (socket) => this.handleClient(socket))
-        server.listen(port, function (err) {
-            if (err) throw err
-            console.log('listening on port 3000')
-        })
+        io.on('connection', (socket) => this.handleConnection(socket))
+        try {
+            server.listen(port, function (err) {
+                if (err) throw err
+                console.log('listening on port 3000')
+            })
+        } catch (e) {
+            console.log(e)
+        }
     }
 
 }

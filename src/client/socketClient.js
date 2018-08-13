@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import * as response from './serverResponseHandler' 
+import response from './serverResponseHandler'
 
 const socket = io.connect('http://localhost:3000')
 
@@ -29,8 +29,8 @@ socket.on('error', function (err) {
 })
 
 socket.on('registerResponse', response.register)
-
 socket.on('gameListResponse', response.gameList)
+socket.on('newGameResponse', response.newGame)
 
 export {
   register,

@@ -1,6 +1,6 @@
 const Game = require('./Game')
 
-export default class GameManager {
+class GameManager {
 	
 	constructor() {
 		// this.games = new Map()
@@ -17,20 +17,25 @@ export default class GameManager {
 	}
 
 	addGame() {
-		gameList = this.games
+		const gameList = this.games
+		let newGameId
 		do
 			newGameId = (Math.floor(Math.random() * 9999) + 1).toString().padStart(4, '0')
 		while (!this.getGame(newGameId))
-		newGame = new Game(newGameId)
+		const newGame = new Game(newGameId)
 		this.games = gameList.concat(game)
 		return newGame
 	}
 
 	getGame(gameId) {
-		return this.games.get(gameId)
+		return this.games.find(game => game.id === gameId)
 	}
 
 	getGameList() {
 		return this.games
 	}
 }
+
+gameManager = new GameManager()
+
+export default gameManager
