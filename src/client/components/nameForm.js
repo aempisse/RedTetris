@@ -9,7 +9,7 @@ import { updateInputUserName, updateUserName } from "../actions/nameForm.js";
 const client = socket();
 
 const mapStateToProps = (state) => {
-  return ({ InputNameState: state.inputUserName});
+  return ({InputNameState: state.inputUserName});
 };
 
 const handleChange = (event) => {
@@ -20,7 +20,7 @@ const HandleSubmit = (event) => {
     event.preventDefault();
     store.dispatch(updateUserName());
 
-    const onRegisterResponse = () => alert('User registered succesfully !');
+    const onRegisterResponse = () => console.log('User registered succesfully !');
     client.register(store.getState().UserName , (err, user) => onRegisterResponse());
 }
 

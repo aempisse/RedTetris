@@ -1,8 +1,8 @@
 import React from 'react';
-import GameBoard from './GameBoard.js';
 import NameForm from '../components/nameForm.js';
 import Home from "./Home.js";
 import { connect } from "react-redux";
+import InGame from './InGame.js';
 
 const Page = (props) => {
 	if (props.index.PageIndex == 0)
@@ -10,7 +10,7 @@ const Page = (props) => {
 	else if (props.index.PageIndex == 1)
 		return (<Home />);
 	else if (props.index.PageIndex == 2)
-		return (<GameBoard />);
+		return (<InGame />);
 }
 
 const mapStateToProps = (state) => {
