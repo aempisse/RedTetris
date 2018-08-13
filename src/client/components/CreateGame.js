@@ -2,9 +2,11 @@ import React from "react"
 import { connect } from "react-redux";
 import {createGameRoom} from "../actions/createGameRoom";
 import store from "../store/index.js"
+import {gameList} from "../socketClient.js";
+
 
 const CreateNewRoom = () => {
-	store.dispatch(createGameRoom());
+	gameList(store.getState().userName);
 }
 
 const CreateGameButton = () => {
