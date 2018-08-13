@@ -13,12 +13,15 @@ import store from "./store/index";
 import * as event from "./constants/eventHandler.js";
 import {updateTetri} from "./actions/update_tetri.js";
 
+// import io from 'socket.io-client';
+// const socket = io.connect('http://localhost:3000')
+
 render((
   <Provider store={store}>
     <App/>
   </Provider>
 ), document.getElementById('tetris'))
 
-window.setInterval(() => {store.dispatch(updateTetri());} , 1000);
+//window.setInterval(() => {store.dispatch(updateTetri());} , 1000);
 //window.setInterval(event.update(), 1000);
-window.addEventListener('keydown', e => event.keyHandler(e), false);
+//window.addEventListener('keydown', e => event.keyHandler(e), false);

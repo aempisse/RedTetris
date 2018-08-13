@@ -1,7 +1,6 @@
 import React from "react";
-import NameForm from "../components/nameForm.js";
 import CreateGameButton from "../components/CreateGame.js";
-import ExitGameRoomButton from "../components/ExitGameRoom.js";
+import GameList from "../components/GameList.js";
 import { connect } from "react-redux";
 import store from "../store/index.js";
 
@@ -12,8 +11,9 @@ const mapStateToProps = (state) => {
 const Home = ({UserNameState}) => {
     return (
         <div style={{margin: '10% 0px 0px 40%'}}>
-            Hello {UserNameState} !
+            <div style={{margin: "0px 0px 30px 10%"}}>Hello {UserNameState} !</div>
             <CreateGameButton />
+            <GameList />
         </div>
     )
 };

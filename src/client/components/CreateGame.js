@@ -9,7 +9,7 @@ const CreateNewRoom = () => {
 
 const CreateGameButton = () => {
 	return (
-		<div>
+		<div style={{margin: "0px 0px 5px 10%"}}>
             	<button onClick={CreateNewRoom}>Create New Game</button>
 		</div>
 	)
