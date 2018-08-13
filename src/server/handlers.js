@@ -48,20 +48,21 @@ import Player from './data/player/Player'
 // 	return handleEvent
 //   }
 
-module.exports =  function (client, clientManager, gameManager) {
+module.exports =  function (client, clientManager, gameManager, socketHandler) {
 	// const handleEvent = makeHandleEvent(client, clientManager, gameManager)
 
-	function handleRegister(userName, callback) {
-
+	function handleRegister(userName) {
 		clientManager.registerClient(client, userName)
-
 		console.log('client register:', userName)
-
-		return callback(null, userName)
+		socketHandler.registerResponse(userName)
 	}
 
-	function handleNewGame(name, callback) {
-		
+	function handleGameList() {
+		const gameList = gameManager.getGameList()
+		socketHandler.gameListResponse(gameList)
+	}
+
+	function handleNewGame(name,) {
 		client = clientManager.getClientByUserName(name)
 
 		newGame = gameManager.addGame()
@@ -69,12 +70,6 @@ module.exports =  function (client, clientManager, gameManager) {
 
 		console.log('game created:', newGame.id)
 		console.log('added player', name, 'to game', newGame.id)
-
-		return callback(null, newGame.id)
-	}
-
-	function handleGameList(callback) {
-		return callback(null, gameManager.getGameList())
 	}
 
 	// function handleJoin(chatroomName, callback) {

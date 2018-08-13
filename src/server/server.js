@@ -4,17 +4,20 @@ import IO from 'socket.io'
 
 import ClientManager from './ClientManager'
 import GameManager from './data/game/GameManager'
+import SocketHandler from './SocketHandler'
 import makeHandlers from './handlers'
 
 const clientManager = new ClientManager()
 const gameManager = new GameManager()
 
 class Server {
+    
+    handleClient(socket) {
+        
+        console.log('client connected...', socket.id)
+        clientManager.addClient(socket)
 
-    handleClient(client) {
-
-        console.log('client connected...', client.id)
-        clientManager.addClient(client)
+        const socketHandler = new SocketHandler(socket)
 
         const {
             handleRegister,
@@ -24,13 +27,13 @@ class Server {
             // handleLeave,
             // handleGetGames,
             // handleDisconnect
-        } = makeHandlers(client, clientManager, gameManager)
+        } = makeHandlers(socket, clientManager, gameManager, socketHandler)
 
-        client.on('register', handleRegister)
+        socket.on('register', handleRegister)
     
-        client.on('newGame', handleNewGame)
+        socket.on('newGame', handleNewGame)
 
-        client.on('gameList', handleGameList)
+        socket.on('gameList', handleGameList)
 
         // client.on('join', handleJoin)
     
@@ -38,13 +41,13 @@ class Server {
     
         // client.on('games', handleGetGames)
     
-        client.on('disconnect', function () {
-            console.log('client disconnect...', client.id)
+        socket.on('disconnect', function () {
+            console.log('client disconnect...', socket.id)
             // handleDisconnect()
         })
     
-        client.on('error', function (err) {
-            console.log('received error from client:', client.id)
+        socket.on('error', function (err) {
+            console.log('received error from client:', socket.id)
             console.log(err)
         })
     }
@@ -54,7 +57,7 @@ class Server {
         const server = http.Server(app)
         const io = IO(server)
 
-        io.on('connection', (client) => this.handleClient(client))
+        io.on('connection', (socket) => this.handleClient(socket))
         server.listen(port, function (err) {
             if (err) throw err
             console.log('listening on port 3000')
