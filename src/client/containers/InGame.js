@@ -1,11 +1,11 @@
 import React from "react";
-import GameBoard from "./GameBoard.js"
+import Game from "./Game.js"
 import ExitGame from "../components/ExitGameRoom.js"
 
 const InGame = () =>{
     return (
         <div>
-            <GameBoard />
+            <Game />
             <ExitGame />
         </div>
     );

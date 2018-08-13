@@ -8,7 +8,7 @@ const handleClick = () => {
 
 const ExitGameRoomButton = ({}) => {
 	return (
-		<div style={{margin: '10% 0px 0px 40%'}}>
+		<div style={{margin: '10% 0px 0px 20px'}}>
             	<button onClick={handleClick}>Exit The Room</button>
 		</div>
 	)

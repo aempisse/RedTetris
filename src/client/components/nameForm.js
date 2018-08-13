@@ -1,9 +1,9 @@
 import React from 'react'
-//import { connect } from 'http2';
 import { connect } from "react-redux";
 import store from "../store/index.js";
 import {register} from "../socketClient.js";
-import { updateInputUserName, updateUserName } from "../actions/nameForm.js";
+import { updateInputUserName } from "../actions/nameForm.js";
+import {gameList} from "../socketClient.js";
 
 const mapStateToProps = (state) => {
   return ({InputNameState: state.inputUserName});
@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
 
 const handleChange = (event) => {
   store.dispatch(updateInputUserName(event.target.value));
+  gameList();
 }
 
 const HandleSubmit = (event) => {

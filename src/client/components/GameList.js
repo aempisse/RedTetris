@@ -8,7 +8,6 @@ const mapStateToProps = (state) => {
 }
 
 const  ListGame = (props) => {
-    console.log(props.gameList.length);
     if (props.gameList.length === 0)
         return (<div>Aucune Partie trouvé</div>)
     let list = props.gameList.map((obj, index) => <div key={index}><ListObj index={index} data={obj} /></div>);
