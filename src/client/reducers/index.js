@@ -1,4 +1,4 @@
-import {CHANGE_COLOR, UPDATE_TETRI, TETRI_MOVE, UPDATE_INPUT_USERNAME, UPDATE_USERNAME, NEW_GAME_ROOM, EXIT_GAME_ROOM} from "../constants/action_types";
+import {CHANGE_COLOR, UPDATE_TETRI, TETRI_MOVE, UPDATE_INPUT_USERNAME, UPDATE_USERNAME, UPDATE_GAME_LIST, NEW_GAME_ROOM, EXIT_GAME_ROOM} from "../constants/action_types";
 import {newTetriminos} from "../constants/TetriminosGenerator.js";
 
 const initialState = {
@@ -27,20 +27,11 @@ const initialState = {
 	InputUserName: "",
 	userName: "Player",
 	pageIndex: 0,
-	ListGame: [{id: '0123', players: [
-		{playerName: 'jean-michel', id: '42'},
-		{playerName: 'michelle-jean', id: '27'}]},
-			{id: '6789', players: [
-		{playerName: 'max', id: '84'},
-		{playerName: 'axel', id: '65'}]},
-			{id: '0278', players: [
-		{playerName: 'gege', id: '92'},
-		{playerName: 'paul', id: '82'},
-		{playerName: 'dede', id: '15'}]}],
+	ListGame: [],
 };
 
 const rootReducer = (state = initialState, action) => {
-	 console.log("payload dans le reducer : " + action.namePayload);
+	//  console.log("payload dans le reducer : " + action.namePayload);
 	switch (action.type) {
 		case CHANGE_COLOR:
 			return {...state, colors: action.payload};
@@ -55,7 +46,9 @@ const rootReducer = (state = initialState, action) => {
 		case NEW_GAME_ROOM:
 			return {...state, pageIndex: action.pageIndexPayload};
 		case EXIT_GAME_ROOM:
-			return {...state, pageIndex: action.pageIndexPayload};	
+			return {...state, pageIndex: action.pageIndexPayload};
+		case UPDATE_GAME_LIST:
+			return {...state, ListGame: action.gameListPayload};	
 		default:
 			return state;
 	}

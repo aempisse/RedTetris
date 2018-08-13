@@ -6,10 +6,10 @@ const checkColor = (index) => {
 
 const ListObj = (props) => {
     return (
-        <div style={{padding: "5px 0px 5px 10px", backgroundColor:checkColor(props.index),}}>
+        <div style={{padding: "5px 0px 5px 20px", backgroundColor:checkColor(props.index),}}>
             <span style={{margin: "0px 0px 0px 5px"}}>Game ID : {props.data.id}</span>
             <span style={{margin: "0px 0px 0px 5px"}}>Players : {props.data.players.length} / 4</span>
-            <button style={{margin: "0px 0px 0px 5px"}}>Rejoindre</button>
+            <button style={{margin: "0px 0px 0px 5px"}}>Join</button>
         </div>
     );
 }

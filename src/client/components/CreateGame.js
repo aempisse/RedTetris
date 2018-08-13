@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {createGameRoom} from "../actions/createGameRoom";
 import store from "../store/index.js"
 
+
 const CreateNewRoom = () => {
 	store.dispatch(createGameRoom());
 }

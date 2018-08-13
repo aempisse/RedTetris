@@ -37,5 +37,5 @@ export {
   newGame,
   gameList,
   join,
-  // leave,
+  leave,
 }
