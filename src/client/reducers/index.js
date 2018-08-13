@@ -40,7 +40,7 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, action) => {
-	//  console.log("payload dans le reducer : " + action.namePayload);
+	 console.log("payload dans le reducer : " + action.namePayload);
 	switch (action.type) {
 		case CHANGE_COLOR:
 			return {...state, colors: action.payload};

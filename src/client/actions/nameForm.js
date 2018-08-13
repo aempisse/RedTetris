@@ -8,8 +8,7 @@ export function updateInputUserName(newName){
     }
 };
 
-export function updateUserName(){
-    let newName = store.getState().InputUserName;
+export function updateUserName(newName){
     return {
         type: UPDATE_USERNAME,
         namePayload: newName,

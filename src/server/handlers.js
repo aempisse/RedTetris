@@ -62,7 +62,7 @@ module.exports =  function (client, clientManager, gameManager, socketHandler) {
 		socketHandler.gameListResponse(gameList)
 	}
 
-	function handleNewGame(name,) {
+	function handleNewGame(name) {
 		client = clientManager.getClientByUserName(name)
 
 		newGame = gameManager.addGame()

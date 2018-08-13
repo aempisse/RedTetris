@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import response from './serverResponseHandler' 
+import * as response from './serverResponseHandler' 
 
 const socket = io.connect('http://localhost:3000')
 
